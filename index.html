@@ -80,29 +80,65 @@
               </label>
             </p>
 
+            <!-- Added by Eric - Checkbok for Service Category -->
             <h4>
-              Type of location
+              Service Category 
             </h4>
             <ul class='inputs-list unstyled'>
               <li>
                 <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType1' />
-                  <span class='filter-box filter-green'></span>
-                  Business
-                </label>
-              </li>
-              <li>
-                <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType2' />
+                  <input type='checkbox' id='academic-support' />
                   <span class='filter-box filter-red'></span>
-                  Community Services
+                  Academic Support
                 </label>
               </li>
               <li>
                 <label class='checkbox inline'>
-                  <input type='checkbox' id='cbType3' />
-                  <span class='filter-box filter-blue'></span>
-                  Local Government
+                  <input type='checkbox' id='employment' />
+                  <span class='filter-box filter-orange'></span>
+                  Employment
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='housing' />
+                  <span class='filter-box filter-yellow'></span>
+                  Housing
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='medical-care' />
+                  <span class='filter-box filter-green'></span>
+                  Medical Care
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='mental-health' />
+                  <span class='filter-box filter-skyblue'></span>
+                  Mental Health
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='parent-guardian-support' />
+                  <span class='filter-box filter-purple'></span>
+                  Parent/Guardian Support
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='youth-support' />
+                  <span class='filter-box filter-pink'></span>
+                  Youth Support
+                </label>
+              </li>
+              <li>
+                <label class='checkbox inline'>
+                  <input type='checkbox' id='other' />
+                  <span class='filter-box filter-brown'></span>
+                  Other
                 </label>
               </li>
             </ul>
@@ -170,7 +206,7 @@
           var myMap = new MapsLib({
             fusionTableId:      "1qv_8t4BrqTha6fQPH0HYBP2iMHdWJd7X3mAuxjZb",
             googleApiKey:       "AIzaSyB4BjFBwCZ24twD-mSSNr_djWWRErc64V4",
-            locationColumn:     "'Full Address'",
+            locationColumn:     "'Location'",
             map_center:         [41.789546, -87.599630],
             addrMarkerImage:    ''
           });

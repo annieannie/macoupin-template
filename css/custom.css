@@ -29,6 +29,14 @@ a:hover { color: #4B58A6; }
 .filter-purple { background-color: #7C54FB; }
 .filter-red { background-color: #FB6353; }
 
+/* Eric - added new colors for checkboxes */
+.filter-brown { background-color: #996633; }
+.filter-pink { background-color: #FF3399; }
+.filter-skyblue { background-color: #00CCFF; }
+.filter-orange { background-color: #FF9900; }
+.filter-gray { background-color: #8B8B8B; }
+
+
 canvas {-ms-touch-action: double-tap-zoom;}
 
 /* customizations for iframe template */
