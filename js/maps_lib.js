@@ -327,7 +327,7 @@
 
     MapsLib.prototype.getList = function(whereClause) {
         var self = this;
-        var selectColumns = "Organization, Location, \"Service Name\", Phone, Website, Description";
+        var selectColumns = "Organization, Location, 'Service Name', Phone, Website, Description";
 
         self.query({
             select: selectColumns,
@@ -359,7 +359,7 @@
                 template = "\
                   <tr>\
                       <td><span class='filter-box filter-" + "'></span></td>\
-                      <td><strong>" + data[row][0] + "</strong><br /><small>" + data[row][2] + "<br />" + data[row][3] + "</small></td>\
+                      <td><strong>" + data[row][0] + "</strong><br /><small>" + data[row][2] + "<br />" + "</small></td>\
                       <td>" + data[row][1] + "</td>\
                       <td>";
 
