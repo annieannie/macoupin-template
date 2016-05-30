@@ -56,7 +56,7 @@
         self.searchrecords = null;
 
         //reset filters
-        $("#name_search").val(self.convertToPlainString($.address.parameter('name')));
+        $("#name_search").val(self.convertToPlainString($.address.parameter('Organization')));
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
         var loadRadius = self.convertToPlainString($.address.parameter('radius'));
         if (loadRadius != "") 
@@ -161,18 +161,30 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
-        var type_column = "'Type ID'";
-        var searchType = type_column + " IN (-1,";
-        if ( $("#cbType1").is(':checked')) searchType += "1,";
-        if ( $("#cbType2").is(':checked')) searchType += "2,";
-        if ( $("#cbType3").is(':checked')) searchType += "3,";
-        self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+        // Added by Eric - Checkbok for Service Category
+        var type_column = "'Service Category'";
+        var tempWhereClause = [];
+        if ( $("#academic-support").is(':checked')) tempWhereClause.push("Academic Support");
+        if ( $("#employment").is(':checked')) tempWhereClause.push("Employment");
+        if ( $("#housing").is(':checked')) tempWhereClause.push("Housing");
+        if ( $("#medical-care").is(':checked')) tempWhereClause.push("Medical Care");
+        if ( $("#mental-health").is(':checked')) tempWhereClause.push("Mental Health");
+        if ( $("#parent-guardian-support").is(':checked')) tempWhereClause.push("Parent/Guardian Support");
+        if ( $("#youth-support").is(':checked')) tempWhereClause.push("Youth Support");
+        if ( $("#other").is(':checked')) tempWhereClause.push("Other");
+        self.whereClause += " AND " + type_column + " IN ('" + tempWhereClause.join("','") + "')";
+        // var type_column = "'Type ID'";
+        // var searchType = type_column + " IN (-1,";
+        // if ( $("#cbType1").is(':checked')) searchType += "1,";
+        // if ( $("#cbType2").is(':checked')) searchType += "2,";
+        // if ( $("#cbType3").is(':checked')) searchType += "3,";
+        // self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
         
 
         var name_search = $("#name_search").val().replace("'", "\\'");
         if (name_search != '') {
             self.whereClause += " AND 'Full Search' contains ignoring case '" + name_search + "'";
-            $.address.parameter('name', encodeURIComponent(name_search));
+            $.address.parameter('Organization', encodeURIComponent(name_search));
         }
         //-----end of custom filters-----
 
@@ -184,7 +196,7 @@
     };
 
     MapsLib.prototype.reset = function () {
-        $.address.parameter('name','');
+        $.address.parameter('Organization','');
         $("#name_search").val("");
         $.address.parameter('address','');
         $.address.parameter('radius','');
