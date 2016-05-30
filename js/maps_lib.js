@@ -183,7 +183,7 @@
 
         var name_search = $("#name_search").val().replace("'", "\\'");
         if (name_search != '') {
-            self.whereClause += " AND 'Full Search' contains ignoring case '" + name_search + "'";
+            self.whereClause += " AND 'Organization' contains ignoring case '" + name_search + "'";
             $.address.parameter('Organization', encodeURIComponent(name_search));
         }
         //-----end of custom filters-----
@@ -275,10 +275,11 @@
             key: self.googleApiKey
         };
         $.ajax({
+
             url: [theurl.base, encodeURIComponent(theurl.queryStr.join(" ")), "&key=", theurl.key].join(''),
             dataType: "json"
         }).done(function (response) {
-            //console.log(response);
+            console.log(response);
             if (callback) callback(response);
         }).fail(function(response) {
             self.handleError(response);
